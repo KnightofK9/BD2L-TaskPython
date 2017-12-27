@@ -1,5 +1,3 @@
-import Constant
-import sys
 import cv2
 import os
 import shutil
@@ -29,11 +27,13 @@ class VideoExtractor:
         success, image = video.read()
         count = 0
         fps = 0
-        (major_ver, minor_ver, subminor_ver) = (cv2.__version__).split('.')
+        (major_ver, minor_ver, subminor_ver) = cv2.__version__.split('.')
         if int(major_ver) < 3:
             fps = video.get(cv2.cv.CV_CAP_PROP_FPS)
+            print "Frames per second using video.get(cv2.cv.CV_CAP_PROP_FPS): {0}".format(fps)
         else:
             fps = video.get(cv2.CAP_PROP_FPS)
+            print "Frames per second using video.get(cv2.CAP_PROP_FPS) : {0}".format(fps)
         frame_rate = 1.0 / fps
         current_time = 0
         count_reading = 0

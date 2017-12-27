@@ -3,7 +3,6 @@ import sys
 import os
 import cv2
 
-sys.path.append(Constant.DARK_NET_PYTHON_MODULE_PATH)
 import darknet
 
 
