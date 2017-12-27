@@ -4,7 +4,6 @@ import cv2
 import os
 import shutil
 
-sys.path.append(Constant.EXTRACTOR_PYTHON_MODULE_PATH)
 from Extractor import Extractor
 
 
