@@ -28,7 +28,12 @@ class VideoExtractor:
         video = cv2.VideoCapture(input_path)
         success, image = video.read()
         count = 0
-        fps = video.get(cv2.CAP_PROP_FPS)
+        fps = 0
+        (major_ver, minor_ver, subminor_ver) = (cv2.__version__).split('.')
+        if int(major_ver) < 3:
+            fps = video.get(cv2.cv.CV_CAP_PROP_FPS)
+        else:
+            fps = video.get(cv2.CAP_PROP_FPS)
         frame_rate = 1.0 / fps
         current_time = 0
         count_reading = 0
